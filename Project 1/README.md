@@ -12,9 +12,9 @@ The div which shows output for the guessing game is created and given attributes
 #### 5. Output Paragraph for Guessing Game
 The output paragraph for the guessing game is created alongside the div previously mentioned in Requirement 4. JavaScript on *lines 100-141* of [project1.html](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.html#L100) was used to retrieve user input for name and create the output paragraph and link. More specifically, the generateText method creates the div and appends a paragraph that uses the name input as part of a "Thanks for playing" sentence, and the generateLink method creates an anchor to append to the body that varies depending on if the user's number guess was lower than, higher than, or the same as a random number from 1-10 generated in the guessingGame function on *lines 89-96* of [project1.html](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.html#L89).
 #### 6. Link CSS Values
-The separate hover, visited, and unvisited values for the generated link are on *lines 31-39* of [project1.css](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.css#31).
+The separate hover, visited, and unvisited values for the generated link are on *lines 31-39* of [project1.css](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.css#L31).
 #### 7. Div Frame CSS Values
-The frame for non-header divs is detailed in the .borderedDiv class on *lines 56-58* of [project1.css](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.css#56). 
+The frame for non-header divs is detailed in the .borderedDiv class on *lines 56-58* of [project1.css](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.css#L56). 
 #### 8. Unified CSS File
 The single unified CSS file used by all HTML pages in this project can be found at the following link: [project1.css](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.css)
 ### Screenshot of project1.html
