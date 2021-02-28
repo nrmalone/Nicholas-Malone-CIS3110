@@ -28,23 +28,18 @@ label {
 }
 
 /*different values for link*/
-href:unvisited {
+a.outputLink:unvisited {
   color:#6495ED;
 }
-href:hover {
+a.outputLink:hover {
   color:#40E0D0;
 }
-href:visited {
+a.outputLink:visited {
   color:#CCCCFF;
 }
 
 .outputText {
   color:#FFBF00;
-}
-
-.outputLink {
- color:#3EDA3F; 
- margin-left: 40px;
 }
 
 .incorrect {
@@ -55,4 +50,9 @@ href:visited {
 .correct {
   color:#3EDA3F;
   font-size: 24px;
+}
+
+/*div border for specific divs on page*/
+.borderedDiv {
+  border: groove;
 }
