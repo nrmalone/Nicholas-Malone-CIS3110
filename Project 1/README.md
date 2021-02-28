@@ -1,5 +1,5 @@
 # Nicholas Malone - *CIS3110 Project 1*
-### [YouTube Demonstration](https://upload.wikimedia.org/wikipedia/commons/6/67/Learning_Curve_--_Coming_Soon_Placeholder.png)
+### [YouTube Demonstration](https://youtu.be/y3D60F73wgs)
 ## Deliverable Requirements
 #### 1. Dropdown Navigational Menu
 The navigation bar and dropdown menu can be found on *lines 18-43* of the [project1.html](https://github.com/nrmalone/Nicholas-Malone-CIS3110/blob/main/Project%201/project1.html#L18) file. These elements are directly borrowed from Bootstrap through the JSDelivr CDN. The three links in the dropdown menu are the three possible links generated as an outcome of a number guessing game. The guessing game based on user input is described in Requirement 5.
