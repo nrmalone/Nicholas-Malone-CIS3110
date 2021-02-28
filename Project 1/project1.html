@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project 1</title>
+        <!-- Bootstrap CSS from JSDelivr -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="project1.css">
+    </head>
+    
+    <body id="body">
+        
+       <!-- JavaScript dependencies from JSDelivr  -->
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+       <!-- Top menu and dropdown -->
+       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+           <a class="navbar-brand" href="#">Project 1</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           
+           <div class="collapse navbar-collapse" id="navbarsExample03">
+               <ul class="navbar-nav mr-auto">
+                   <li class="nav-item">
+                       <a class="nav-link" href="https://github.com/nrmalone/CIS3110Project1">Github</a>
+                   </li>
+                   <li class="nav-item-dropdown">
+                       <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Interesting Dropdown?
+                       </a>
+                       <div class="dropdown-menu" aria-labelledby="dropdown03">
+                           <a class="dropdown-item" href="guesslow.html">Guess Too Low</a>
+                           <a class="dropdown-item" href="guesshigh.html">Guess Too High</a>
+                           <a class="dropdown-item" href="guesscorrect.html">Guess Correct</a>
+                       </div>
+                   </li>
+               </ul>
+           </div>
+       </nav>
+       
+       
+       <h2>Let's play a game!</h2>
+              <!-- Inputs w/ Text & Submit Button -->
+       <label>Guess a number (1-10):
+           <input id="numberInput" 
+                type="number" 
+                placeholder="#"
+                min="1"
+                max="10"
+                required>
+       </label>
+       <br />
+       <label>Name:
+           <input id="nameInput" 
+                type="text" 
+                placeholder="Your Name"
+                required>
+       </label>
+       
+       <button type="button" id="submitButton" class="btn btn-dark">Submit</button>
+       
+       <div>
+           <p>
+               <a class="OutputLink"></a>
+           </p>
+       </div>
+       
+       <!-- submit and link output script -->
+       <script type="text/javascript">
+           
+           //input gathering and console log
+           document.getElementById('submitButton').onclick = function ()
+           {
+               var numberInput = document.getElementById('numberInput').value;
+               var nameInput = document.getElementById('nameInput').value;
+               console.log(typeof numberInput + "| Number input: " + numberInput + "\n" + typeof nameInput + "| Name input: " + nameInput);
+               
+               generateText(nameInput);
+               guessingGame(numberInput);
+           };
+           
+           //generate random number and compare
+           function guessingGame(userNumber) {
+               var min = 1;
+               var max = 10;
+               var randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+               
+               var numberComparison = userNumber - randomNumber;
+               
+               generateLink(numberComparison);
+           }
+           
+           //generate a div and explanation text
+           function generateText(nameInput) {
+               var outputDiv = document.createElement("div");
+               var outputParagraph = document.createElement("p");
+               var outputMessage = "Thank you for playing, " + nameInput + "!\n";
+               var outputTextNode = document.createTextNode(outputMessage);
+               
+               outputParagraph.appendChild(outputTextNode);
+               outputParagraph.setAttribute("class", "outputText");
+               outputDiv.appendChild(outputParagraph);
+               outputDiv.setAttribute("id", outputDiv);
+               
+               var bodyElement = document.getElementById("body");
+               bodyElement.append(outputDiv);
+           }
+           
+           //generate a link based on if user guessed high, low, or correct
+           function generateLink(numberComparison) {
+               var anchor = document.createElement('a');
+               var linkHoverTitle = "Let's see the results!";
+               anchor.title = linkHoverTitle;
+               var linkMessage = "Click here to see how you did.";
+               var linkMessageTextNode = document.createTextNode(linkMessage);
+               anchor.appendChild(linkMessageTextNode);
+               anchor.setAttribute("class", "outputLink");
+               
+               //user guess < random number
+               if (numberComparison < 0 && numberComparison != 0) {
+                   anchor.href = "guesslow.html";
+                   document.body.appendChild(anchor);
+               }
+               //user guess > random number
+               else if (numberComparison > 0 && numberComparison != 0) {
+                   anchor.href = "guesshigh.html";
+                   document.body.appendChild(anchor);
+               }
+               //user guess is correct
+               else
+               {
+                   anchor.href = "guesscorrect.html";
+                   document.body.appendChild(anchor);
+               }
+           }
+       </script>
+       
+    </body>
+</html>

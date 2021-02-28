@@ -1,0 +1,58 @@
+body {
+  background: #354241;
+}
+
+h2 {
+  color: #E1E1E1;
+  font-size: 24px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+h3 {
+  color: #E1E1E1;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+p {
+  color: #E1E1E1;
+  margin: 10px 20px;
+}
+
+label {
+  color: #E1E1E1;
+  margin-left: 20px;
+}
+
+/*different values for link*/
+href:unvisited {
+  color:#6495ED;
+}
+href:hover {
+  color:#40E0D0;
+}
+href:visited {
+  color:#CCCCFF;
+}
+
+.outputText {
+  color:#FFBF00;
+}
+
+.outputLink {
+ color:#3EDA3F; 
+ margin-left: 40px;
+}
+
+.incorrect {
+  color: #DE3163;
+  font-size: 24px;
+}
+
+.correct {
+  color:#3EDA3F;
+  font-size: 24px;
+}
