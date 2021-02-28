@@ -106,7 +106,9 @@
                outputParagraph.appendChild(outputTextNode);
                outputParagraph.setAttribute("class", "outputText");
                outputDiv.appendChild(outputParagraph);
-               outputDiv.setAttribute("id", outputDiv);
+               outputDiv.setAttribute("id", "outputDiv");
+               outputDiv.setAttribute("class", "borderedDiv");
+               
                
                var bodyElement = document.getElementById("body");
                bodyElement.append(outputDiv);
