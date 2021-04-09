@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="project1.css">
     </head>
     
-    <body id="body">
+    <body id="body" onload="getCookie('username');">
         
        <!-- JavaScript dependencies from JSDelivr  -->
        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -109,7 +109,6 @@
                outputDiv.setAttribute("id", "outputDiv");
                outputDiv.setAttribute("class", "borderedDiv");
                
-               
                var bodyElement = document.getElementById("body");
                bodyElement.append(outputDiv);
            }
@@ -141,6 +140,25 @@
                    document.body.appendChild(anchor);
                }
            }
+           
+           function getCookie(cookieName) {
+                console.log('Getting cookie...');
+                
+                var name = cookieName + "=";
+                var ca = document.cookie.split(';');
+                console.log(`Reading cookie, gc: ${ca}`);
+                
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    console.log(`ca at i: ${ca[i]}`);
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                alert("Welcome back.");
+                return "";
+            }
        </script>
        
     </body>
