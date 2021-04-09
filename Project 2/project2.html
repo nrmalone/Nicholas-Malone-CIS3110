@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    </head>
+    <body id="body" class="text-center" onload="checkCookie()">
+        <form class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal">Sign In Below</h1>
+            <input id="usernameInput" type="text" class="form-control" placeholder="Username" required autofocus>
+            <input id="passwordInput" type="password" class="form-control" placeholder="Password" required>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button id="signInButton" class="btn btn-lg btn-primary btn-block">Sign in</button>
+        </form>
+        
+        <script>
+            var username = "";
+            var password = "";
+            
+            //fetch username and password
+            function setCookie(cookieName, userName, expire) {
+                console.log('Setting cookie...');
+                var date = new Date();
+                date.setTime(date.getTime() + (expire*24*60*60*1000));
+                var expires = "expires=" + date.toGMTString();
+                document.cookie = cookieName + "=" + userName + ";" + expires;
+            }
+            
+            function getCookie(cookieName) {
+                console.log('Getting cookie...');
+                
+                var name = cookieName + "=";
+                var ca = document.cookie.split(';');
+                console.log(`Reading cookie, gc: ${ca}`);
+                
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    console.log(`ca at i: ${ca[i]}`);
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            
+            function checkCookie() {
+                var user = getCookie('username');
+                if (user != "") {
+                    alert("Welcome back, " + user);
+                    window.location.href="../Project 1/project1.html";
+                } else {
+                    if (username != "" && username != null) {
+                        user = username;
+                        setCookie('username', user, 30);
+                    }
+                }
+            }
+            
+            document.getElementById('signInButton').onclick = function()
+            {
+                username = document.getElementById('usernameInput').value;
+                password = document.getElementById('passwordInput').value;
+                
+                if (username != "" && password != "") {
+                    console.log(username + " is authenticated.");
+                    checkCookie();
+                }
+            };
+        </script>
+    </body>
+</html>
